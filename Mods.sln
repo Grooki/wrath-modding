@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniMods", "src\MiniMods\MiniMods.csproj", "{0114F01E-C4F2-4640-B452-306BB8A76EDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0114F01E-C4F2-4640-B452-306BB8A76EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0114F01E-C4F2-4640-B452-306BB8A76EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0114F01E-C4F2-4640-B452-306BB8A76EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0114F01E-C4F2-4640-B452-306BB8A76EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20EAB1BC-A405-47CB-A01A-DFB992FD55B1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+﻿{
+  "Id": "MiniMods",
+  "DisplayName": "Mini Mods",
+  "Author": "Grooki",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.12.2",
+  "Requirements": [ "ModMenu-2.0.8" ],
+  "LoadAfter": [],
+  "AssemblyName": "MiniMods.dll",
+  "EntryMethod": "Grooki.MiniMods.Main.Load"
+}
