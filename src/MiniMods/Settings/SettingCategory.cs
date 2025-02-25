@@ -3,6 +3,8 @@
     internal enum SettingCategory
     {
         General,
-        ImprovedCantrips
+        Bugfixes,
+        ImprovedCantrips,
+        Tailwinds,
     }
 }
