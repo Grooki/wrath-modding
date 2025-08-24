@@ -20,7 +20,7 @@ namespace LR.WrathMod.Changes.Bugfix
         #region Properties
 
         [Setting("Mongrel Racial Stats")]
-        [SettingDescription("Removes the incorrect")]
+        [SettingDescription("Removes the incorrect floating attribute increase from Lann and Wenduag during respec.")]
         [SettingCategory(SettingCategory.Bugfixes, 0)]
         public static bool Enabled
         {
