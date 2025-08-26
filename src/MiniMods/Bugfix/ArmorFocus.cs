@@ -11,7 +11,7 @@ namespace LR.WrathMod.Changes.Bugfix
         #region Properties
 
         [Setting("Mithril Armor Feats")]
-        [SettingDescription("If enabled, mithril armor will count as it's base armor type for the purposes of feats like armor focus.")]
+        [SettingDescription("If enabled, mithril armor will count as its base armor type for the purposes of feats like armor focus.")]
         [SettingCategory(SettingCategory.Bugfixes, 0)]
         public static bool Enabled { get; set; }
 
