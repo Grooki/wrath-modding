@@ -8,12 +8,12 @@ namespace Grooki.MiniMods.Shared
 
         public static void SetDescription(this BlueprintUnitFact feature, string description)
         {
-            feature.m_Description = Localization.CreateString($"{feature.Name}.Description", description);
+            feature.m_Description = Localization.CreateString($"minimods.{feature.Name.ToLowerInvariant()}.description", description);
         }
 
         public static void SetName(this BlueprintUnitFact feature, string name)
         {
-            feature.m_DisplayName = Localization.CreateString($"{feature.Name}.Name", name);
+            feature.m_DisplayName = Localization.CreateString($"minimods.{feature.Name.ToLowerInvariant()}.name", name);
         }
 
         #endregion Methods
