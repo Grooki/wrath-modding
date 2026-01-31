@@ -26,6 +26,7 @@ namespace Grooki.MiniMods.Settings
             var categoryNames = new Dictionary<SettingCategory, LocalizedString>()
             {
                 { SettingCategory.General, Localization.CreateString("minimods.general.name", "General") },
+                { SettingCategory.Rebalance, Localization.CreateString("minimods.rebalance.name", "Rebalance") },
                 { SettingCategory.Bugfixes, Localization.CreateString("minimods.bugfixes.name", "Bugfixes") },
                 { SettingCategory.ImprovedCantrips, Localization.CreateString("minimods.improvedcantrips.name", "Improved Cantrips") },
                 { SettingCategory.Tailwinds, Localization.CreateString("minimods.tailwinds.name", "Tailwinds") },

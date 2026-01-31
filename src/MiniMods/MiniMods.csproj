@@ -6,6 +6,7 @@
 		<Configurations>Debug;Release</Configurations>
 		<LibDir>$(SolutionDir)\lib\wrath</LibDir>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">

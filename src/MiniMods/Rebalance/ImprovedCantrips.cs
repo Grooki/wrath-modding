@@ -77,6 +77,11 @@ namespace Grooki.MiniMods.Rebalance
         public static int MaxDice
         {
             get => _maxDice;
+            set
+            {
+                _maxDice = value;
+                Apply();
+            }
         }
 
         [Setting("Enabled")]
@@ -98,8 +103,6 @@ namespace Grooki.MiniMods.Rebalance
 
         private static void Apply()
         {
-            Log.Instance.Log($"Applying Cantrip Scaling {RescaleCantrips}");
-
             if (!RescaleCantrips) return;
 
             foreach (var id in CantripIds)

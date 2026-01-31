@@ -5,6 +5,7 @@
         General,
         Bugfixes,
         ImprovedCantrips,
+        Rebalance,
         Tailwinds,
     }
 }
