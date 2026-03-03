@@ -3,7 +3,7 @@ using HarmonyLib;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Items;
 
-namespace LR.WrathMod.Changes.Bugfix
+namespace Grooki.MiniMods.Bugfix
 {
     [HarmonyPatch(typeof(ItemEntityArmor), nameof(ItemEntityArmor.ArmorType))]
     internal static class ArmorFocus

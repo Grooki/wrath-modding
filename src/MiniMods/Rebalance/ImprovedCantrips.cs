@@ -137,7 +137,10 @@ namespace Grooki.MiniMods.Rebalance
             var rankComponent = cantrip.GetComponent<ContextRankConfig>();
             if (rankComponent is null)
             {
-                rankComponent = new ContextRankConfig();
+                rankComponent = new ContextRankConfig
+                {
+                    OwnerBlueprint = cantrip
+                };
                 cantrip.AddComponent(rankComponent);
             }
 
