@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Grooki.MiniMods.Settings
 {
-    internal class ReflectionSliderSetting : ReflectionSetting<int>
+    internal class ReflectionInt32SliderSetting : ReflectionSetting<int>
     {
         #region Fields
 
@@ -14,7 +14,7 @@ namespace Grooki.MiniMods.Settings
 
         #region Constructors
 
-        public ReflectionSliderSetting(PropertyInfo property, SettingAttribute attribute, RangeAttribute rangeAttribute) : base(property, attribute)
+        public ReflectionInt32SliderSetting(PropertyInfo property, SettingAttribute attribute, RangeAttribute rangeAttribute) : base(property, attribute)
         {
             _rangeAttribute = rangeAttribute;
         }

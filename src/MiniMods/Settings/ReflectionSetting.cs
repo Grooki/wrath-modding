@@ -28,11 +28,17 @@ namespace Grooki.MiniMods.Settings
                 {
                     return new ReflectionToggleSetting(propertyInfo, settingAttribute);
                 }
+                else if(propertyInfo.PropertyType == typeof(float))
+                {
+                    var rangeAttribute = propertyInfo.GetCustomAttribute<RangeAttribute>();
+                    if (rangeAttribute is null) return null;
+                    return new ReflectionSingleSliderSetting(propertyInfo, settingAttribute, rangeAttribute);
+                }
                 else if (propertyInfo.PropertyType == typeof(int))
                 {
                     var rangeAttribute = propertyInfo.GetCustomAttribute<RangeAttribute>();
                     if (rangeAttribute is null) return null;
-                    return new ReflectionSliderSetting(propertyInfo, settingAttribute, rangeAttribute);
+                    return new ReflectionInt32SliderSetting(propertyInfo, settingAttribute, rangeAttribute);
                 }
             }
             catch
