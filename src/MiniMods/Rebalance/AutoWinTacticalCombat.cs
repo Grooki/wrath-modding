@@ -3,23 +3,36 @@ using HarmonyLib;
 using Kingmaker.Armies;
 using Kingmaker.Armies.TacticalCombat;
 using Kingmaker.Globalmap.State;
+using Kingmaker.UI;
 
 namespace Grooki.MiniMods.Rebalance
 {
-    [HarmonyPatch(typeof(TacticalCombatResultsPrediction), nameof(TacticalCombatResultsPrediction.GetAttackerLossesPercent))]
+    [HarmonyPatch]
     public static class AutoWinTacticalCombat
     {
         #region Properties
 
         [Setting("Always Win Crusade Combat")]
         [SettingDescription("You will always win the crusade mode tactical combats, regardless of army strength.")]
-        public static bool Enabled { get; set; } = false;
+        public static bool Enabled { get; set; }
 
         #endregion Properties
 
         #region Methods
 
-        private static void Postfix(ref float __result, GlobalMapArmyState attacker)
+        [HarmonyPatch(typeof(PlayerUISettings), nameof(PlayerUISettings.AutoTacticalCombat), MethodType.Getter)]
+        [HarmonyPostfix]
+        private static void OverrideAutoCombat(ref bool __result)
+        {
+            if (Enabled)
+            {
+                __result = true;
+            }
+        }
+
+        [HarmonyPatch(typeof(TacticalCombatResultsPrediction), nameof(TacticalCombatResultsPrediction.GetAttackerLossesPercent))]
+        [HarmonyPostfix]
+        private static void OverrideCalculation(ref float __result, GlobalMapArmyState attacker)
         {
             if (Enabled)
             {
