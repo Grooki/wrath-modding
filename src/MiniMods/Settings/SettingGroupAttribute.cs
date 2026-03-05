@@ -3,20 +3,20 @@
 namespace Grooki.MiniMods.Settings
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
-    internal class SettingCategoryAttribute : Attribute
+    internal class SettingGroupAttribute : Attribute
     {
         #region Constructors
 
-        public SettingCategoryAttribute(SettingCategory category)
+        public SettingGroupAttribute(string name)
         {
-            Category = category;
+            Name = name;
         }
 
         #endregion Constructors
 
         #region Properties
 
-        public SettingCategory Category { get; }
+        public string Name { get; }
 
         #endregion Properties
     }

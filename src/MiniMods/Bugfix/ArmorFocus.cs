@@ -6,13 +6,13 @@ using Kingmaker.Items;
 namespace Grooki.MiniMods.Bugfix
 {
     [HarmonyPatch(typeof(ItemEntityArmor), nameof(ItemEntityArmor.ArmorType))]
+    [SettingCategory(SettingCategory.Bugfixes)]
     internal static class ArmorFocus
     {
         #region Properties
 
         [Setting("Mithril Armor Feats")]
         [SettingDescription("If enabled, mithril armor will count as its base armor type for the purposes of feats like armor focus.")]
-        [SettingCategory(SettingCategory.Bugfixes, 0)]
         public static bool Enabled { get; set; }
 
         #endregion Properties

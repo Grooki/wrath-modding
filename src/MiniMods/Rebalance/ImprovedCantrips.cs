@@ -12,6 +12,8 @@ using System.Text.RegularExpressions;
 
 namespace Grooki.MiniMods.Rebalance
 {
+    [SettingCategory(SettingCategory.Rebalance)]
+    [SettingGroup("Improved Cantrips")]
     public static class ImprovedCantrips
     {
         #region Classes
@@ -43,8 +45,8 @@ namespace Grooki.MiniMods.Rebalance
         #region Properties
 
         [Setting("Die Size")]
-        [SettingCategory(SettingCategory.ImprovedCantrips, 1)]
         [SettingDescription("Base die size for cantrips.")]
+        [SettingOrder(1)]
         [SettingDropDownType(typeof(DiceTypeDropdown))]
         public static DiceType DieSize
         {
@@ -57,8 +59,8 @@ namespace Grooki.MiniMods.Rebalance
         }
 
         [Setting("Level Interval")]
-        [SettingCategory(SettingCategory.ImprovedCantrips, 2)]
         [SettingDescription("Number of caster levels required to add an addtional damage die.")]
+        [SettingOrder(2)]
         [Range(Min = 1, Max = 20)]
         public static int IncreaseInterval
         {
@@ -71,8 +73,8 @@ namespace Grooki.MiniMods.Rebalance
         }
 
         [Setting("Maximum Dice")]
-        [SettingCategory(SettingCategory.ImprovedCantrips, 3)]
         [SettingDescription("The maximum number of damage dice.")]
+        [SettingOrder(3)]
         [Range(Min = 1, Max = 20)]
         public static int MaxDice
         {
@@ -85,8 +87,8 @@ namespace Grooki.MiniMods.Rebalance
         }
 
         [Setting("Enabled")]
-        [SettingCategory(SettingCategory.ImprovedCantrips, 0)]
         [SettingDescription("Enables cantrip changes. Requires restart if disabled.")]
+        [SettingOrder(0)]
         public static bool RescaleCantrips
         {
             get => _rescaleCantrips;

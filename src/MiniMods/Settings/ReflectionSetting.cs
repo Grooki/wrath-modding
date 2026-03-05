@@ -28,7 +28,7 @@ namespace Grooki.MiniMods.Settings
                 {
                     return new ReflectionToggleSetting(propertyInfo, settingAttribute);
                 }
-                else if(propertyInfo.PropertyType == typeof(float))
+                else if (propertyInfo.PropertyType == typeof(float))
                 {
                     var rangeAttribute = propertyInfo.GetCustomAttribute<RangeAttribute>();
                     if (rangeAttribute is null) return null;
@@ -72,9 +72,11 @@ namespace Grooki.MiniMods.Settings
             _property = property;
             _attribute = attribute;
 
-            var categoryAttribute = _property.GetCustomAttribute<SettingCategoryAttribute>();
+            var categoryAttribute = _property.GetCustomAttribute<SettingCategoryAttribute>() ?? _property.DeclaringType.GetCustomAttribute<SettingCategoryAttribute>();
             Category = categoryAttribute?.Category ?? SettingCategory.General;
-            Order = categoryAttribute?.Order ?? 0;
+            var groupAttribute = _property.GetCustomAttribute<SettingGroupAttribute>() ?? _property.DeclaringType.GetCustomAttribute<SettingGroupAttribute>();
+            Group = groupAttribute?.Name;
+            Order = _property.GetCustomAttribute<SettingOrderAttribute>()?.Order ?? 0;
         }
 
         #endregion Constructors
@@ -82,6 +84,7 @@ namespace Grooki.MiniMods.Settings
         #region Properties
 
         public SettingCategory Category { get; }
+        public string Group { get; }
         public string Key => $"{_property.DeclaringType.FullName}.{_property.Name}".ToLower();
         public string Name => _attribute.Name;
         public int Order { get; }

@@ -17,6 +17,7 @@ namespace Grooki.MiniMods.Rebalance
     /// spell list in general.
     /// </summary>
     [HarmonyPatch(typeof(AutoMetamagic), nameof(AutoMetamagic.ShouldApplyTo))]
+    [SettingCategory(SettingCategory.Rebalance)]
     internal class FixSacredTailwind
     {
         #region Properties
@@ -25,7 +26,6 @@ namespace Grooki.MiniMods.Rebalance
         [SettingDescription("By default, Sacred Tailwind only applies to spells that are on the base divine spell " +
             "lists. If this is enabled, it applies to any addtional spells added to the list as well (domain spells, " +
             "oracle mystery spells, mythic spells, etc.).")]
-        [SettingCategory(SettingCategory.Tailwinds, 0)]
         public static bool Enabled { get; set; }
 
         #endregion Properties

@@ -8,6 +8,8 @@ namespace Grooki.MiniMods.Settings
 
         SettingCategory Category { get; }
 
+        string Group { get; }
+
         string Name { get; }
 
         int Order { get; }

@@ -6,6 +6,7 @@ using ModMenu.Settings;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UniRx;
 
 namespace Grooki.MiniMods.Settings
@@ -28,12 +29,11 @@ namespace Grooki.MiniMods.Settings
                 { SettingCategory.General, Localization.CreateString("minimods.general.name", "General") },
                 { SettingCategory.Rebalance, Localization.CreateString("minimods.rebalance.name", "Rebalance") },
                 { SettingCategory.Bugfixes, Localization.CreateString("minimods.bugfixes.name", "Bugfixes") },
-                { SettingCategory.ImprovedCantrips, Localization.CreateString("minimods.improvedcantrips.name", "Improved Cantrips") },
-                { SettingCategory.Tailwinds, Localization.CreateString("minimods.tailwinds.name", "Tailwinds") },
             };
 
             var builder = SettingsBuilder.New(RootKey, Localization.CreateString("minimods.name", "Mini Mods"));
             builder.SetMod(Main.ModEntry, false, true);
+            builder.SetModAuthor("Grooki");
 
             var settings = typeof(SettingsManager).Assembly.GetTypes()
                 .SelectMany(t => t.GetProperties(BindingFlags.Static | BindingFlags.Public))
@@ -41,15 +41,28 @@ namespace Grooki.MiniMods.Settings
                 .Where(i => i != null)
                 .ToList();
 
-            foreach (var propertyGroup in settings.GroupBy(tuple => tuple.Category).OrderBy(group => group.Key))
+            foreach (var settingCategory in settings.GroupBy(tuple => tuple.Category).OrderBy(group => group.Key))
             {
-                if (propertyGroup.Key != SettingCategory.General)
+                if (settingCategory.Key != SettingCategory.General)
                 {
-                    builder.AddAnotherSettingsGroup(RootKey + propertyGroup.Key.ToString().ToLower(), categoryNames[propertyGroup.Key]);
+                    builder.AddAnotherSettingsGroup(RootKey + settingCategory.Key.ToString().ToLower(), categoryNames[settingCategory.Key]);
                 }
-                foreach (var setting in propertyGroup.OrderBy(setting => setting.Order).ThenBy(setting => setting.Name))
+                //Settings with no group
+                foreach (var setting in settingCategory.Where(i => i.Group is null).OrderBy(setting => setting.Order).ThenBy(setting => setting.Name))
                 {
                     setting.AddToBuilder(builder);
+                }
+                //Grouped settings
+                foreach(var settingGroup in settingCategory.Where(i => i.Group != null).GroupBy(i => i.Group).OrderBy(group => group.Key))
+                {
+                    //Add header
+                    var settingKey = Regex.Replace(settingGroup.Key.ToLowerInvariant(), @"\s+", "");
+                    var name = Localization.CreateString($"minimods.{settingCategory.Key.ToString().ToLowerInvariant()}.{settingKey}.name", settingGroup.Key);
+                    builder.AddSubHeader(name);
+                    foreach(var setting in settingGroup.OrderBy(setting => setting.Order).ThenBy(setting => setting.Name))
+                    {
+                        setting.AddToBuilder(builder);
+                    }
                 }
             }
 
