@@ -6,7 +6,7 @@
 		<Configurations>Debug;Release</Configurations>
 		<LibDir>$(SolutionDir)\lib\wrath</LibDir>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<AssemblyVersion>1.0.2.0</AssemblyVersion>
 		<WotRInstallPath>D:\Steam\steamapps\common\Pathfinder Second Adventure</WotRInstallPath>
 	</PropertyGroup>
 

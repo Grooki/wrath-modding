@@ -2,7 +2,7 @@
   "Id": "MiniMods",
   "DisplayName": "Mini Mods",
   "Author": "Grooki",
-  "Version": "1.0.1",
+  "Version": "1.0.2",
   "ManagerVersion": "0.12.2",
   "Requirements": [ "ModMenu-2.0.8" ],
   "LoadAfter": [],
