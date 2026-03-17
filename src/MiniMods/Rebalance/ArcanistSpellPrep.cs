@@ -10,7 +10,7 @@ namespace Grooki.MiniMods.Rebalance
 {
     [HarmonyPatch(typeof(Spellbook), nameof(Spellbook.GetSpellSlotsCount))]
     [SettingCategory(SettingCategory.Rebalance)]
-    [SettingGroup("Arcanist")]
+    [SettingGroup("Arcanist Spells Prepared")]
     public static class ArcanistSpellPrep
     {
         #region Fields
